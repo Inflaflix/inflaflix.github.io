@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 12.7 12.7"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="star.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="8.7988368"
+     inkscape:cx="1.0796882"
+     inkscape:cy="16.820405"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1299">
+      <stop
+         style="stop-color:#ff0000;stop-opacity:1;"
+         offset="0"
+         id="stop1295" />
+      <stop
+         style="stop-color:#730000;stop-opacity:1"
+         offset="1"
+         id="stop1297" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1299"
+       id="linearGradient1301"
+       x1="446.79681"
+       y1="332.14914"
+       x2="645.74274"
+       y2="486.23254"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       sodipodi:type="star"
+       style="fill:url(#linearGradient1301);stroke:#ffffff;stroke-opacity:0;fill-opacity:1"
+       id="path848"
+       inkscape:flatsided="false"
+       sodipodi:sides="5"
+       sodipodi:cx="542.61548"
+       sodipodi:cy="405.03287"
+       sodipodi:r1="125.49131"
+       sodipodi:r2="62.996639"
+       sodipodi:arg1="-0.31633545"
+       sodipodi:arg2="0.31198308"
+       inkscape:rounded="0.06"
+       inkscape:randomized="0"
+       d="m 661.88013,365.99429 c 1.55328,4.74533 -57.77646,53.62314 -59.30907,58.37518 -1.5326,4.75205 18.06021,79.0836 14.02712,82.02724 -4.03309,2.94364 -68.85254,-38.37822 -73.84561,-38.36735 -4.99306,0.0109 -69.63206,41.61445 -73.67792,38.68839 -4.04586,-2.92606 15.22325,-77.34218 13.66997,-82.08751 -1.55328,-4.74533 -61.09519,-53.36446 -59.56258,-58.1165 1.53261,-4.75205 78.26103,-9.42188 82.29412,-12.36552 4.03309,-2.94364 31.87316,-74.5955 36.86623,-74.60637 4.99306,-0.0109 33.14472,71.51915 37.19059,74.44521 4.04586,2.92606 80.79388,7.2619 82.34715,12.00723 z"
+       transform="matrix(0.05228691,0,0,0.05269206,-21.989355,-14.44316)"
+       inkscape:transform-center-x="0.4514651"
+       inkscape:transform-center-y="0.13327708"
+       inkscape:export-filename="D:\Programming\HtmlProjects\Inflaflix\img\star.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+</svg>

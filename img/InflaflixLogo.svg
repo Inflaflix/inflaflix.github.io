@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="256"
+   height="256"
+   viewBox="0 0 67.733333 67.733333"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="InflaflixLogo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="256px"
+     inkscape:zoom="2.1997092"
+     inkscape:cx="13.410864"
+     inkscape:cy="85.011237"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient852">
+      <stop
+         style="stop-color:#ff0000;stop-opacity:1"
+         offset="0"
+         id="stop848" />
+      <stop
+         style="stop-color:#d00000;stop-opacity:1"
+         offset="1"
+         id="stop850" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient852"
+       id="linearGradient854"
+       x1="26.953478"
+       y1="4.8179307"
+       x2="41.866043"
+       y2="17.086597"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-2.8805902,-4.3754404)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient852"
+       id="linearGradient2002"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-2.8805902,48.524603)"
+       x1="12.880595"
+       y1="12.034794"
+       x2="45.534615"
+       y2="12.034794" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient852"
+       id="linearGradient2108"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.99324006,0,0,1.000061,14.10136,-4.3761082)"
+       x1="14.454891"
+       y1="7.3441191"
+       x2="17.602283"
+       y2="48.838551" />
+  </defs>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;fill:url(#linearGradient854);fill-opacity:1;stroke:#ffffff;stroke-width:0.264583;stroke-opacity:0"
+       id="rect846"
+       width="48"
+       height="14.6"
+       x="10.132292"
+       y="0.1322915" />
+    <rect
+       style="opacity:1;fill:url(#linearGradient2002);fill-opacity:1;stroke:#ffffff;stroke-width:0.264583;stroke-opacity:0"
+       id="rect2000"
+       width="48"
+       height="14.6"
+       x="10.132292"
+       y="53.032291" />
+    <rect
+       style="opacity:1;fill:url(#linearGradient2108);fill-opacity:1;stroke:#ffffff;stroke-width:0.263695;stroke-opacity:0"
+       id="rect2106"
+       width="14.6"
+       height="67.5"
+       x="27.026274"
+       y="0.1318475" />
+  </g>
+</svg>
