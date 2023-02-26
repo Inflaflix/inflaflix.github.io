@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="icon" type="image/x-icon" href="img/InflaflixLogo.svg">
+    <script src="scripts.js"></script>
     <title>Inflaflix</title>
 </head>
 
@@ -16,9 +17,24 @@
         <div class="nav-bar-container">
             <img src="./img/InflaflixLogoFull.svg" class="nav-logo">
             <ul class="main-navigation">
-                <!--<li class="navigation-menu"><a class="menu-trigger" role="button" aria-haspopup="true" href="todo"
-                    tabindex="0">Durchsuchen</a></li>-->
-                <li class="nav-item"><a class="current active" href="/browse">Startseite</a></li>
+                <li class="nav-menu">
+                    <div class="menu-trigger" role="button" href="todo" tabindex="0">
+                        Durchsuchen
+                        <span class="dropdown-icon"></span>
+                        <div class="dropdown-menu">
+                            <ul>
+                                <li class="nav-item"><a class="current active" href="./index.html">Startseite</a></li>
+                                <li class="nav-item"><a href="/browse/genre/83">Serien</a></li>
+                                <li class="nav-item"><a href="/browse/genre/34399">Filme</a></li>
+                                <li class="nav-item"><a href="/latest">Neu und beliebt</a></li>
+                                <li class="nav-item"><a href="/browse/my-list">Meine Liste</a></li>
+                                <li class="nav-item"><a href="/browse/original-audio">Nach Sprachen durchsuchen</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </li>
+                <li class="nav-item"><a class="current active" href="./index.html">Startseite</a></li>
                 <li class="nav-item"><a href="/browse/genre/83">Serien</a></li>
                 <li class="nav-item"><a href="/browse/genre/34399">Filme</a></li>
                 <li class="nav-item"><a href="/latest">Neu und beliebt</a></li>
@@ -58,19 +74,24 @@
                             <img class="profile-image" src="./img/favicon-econome.png">
                         </a>
                         <span class="dropdown-icon"></span>
-                        <div class="dropdown-menu"></div>
+                        <div class="dropdown-menu">
+                            Diese Website wurde für den Econo=me Wettbewreb 2023 erstellt.<br><br>
+                            Die Gruppe 2 der Klasse 11FB des Johanneums Lüneburg hat sich mit Fragen rund um das Thema
+                            Inflation beschäftigt und präsentiert ihre Ergebnisse nun im Videaformat auf dieser Website.
+                        </div>
                     </div>
                 </div>
 
             </div>
 
         </div>
+        <div class="nav-bar-container-background nav-bar-background-hidden" id="nav-bar-container-background"></div>
 
         <span style="display: block; position: relative;">
             <div class="featured-content-container-hero">
                 <div class="featured-content-container">
                     <div class="featured-content-image-wrapper">
-                        <img src="./img/testImages/themer-wallpaper-burst-dark-2560x1440.png">
+                        <img src="./preview-gifs/Interview-Teil-2-econome.gif">
                         <span class="featured-content-gradients-trailer"></span>
                         <span class="featured-content-gradients-hero"></span>
                     </div>
@@ -87,16 +108,13 @@
                             <div class="featured-content-description">
                                 <div class="featured-content-description-text">
                                     Die Klasse 11FB des Johanneum Lüneburg präsentiert eine Dokumentation über
-                                    Inflation.
-                                    Was
-                                    ist
-                                    das
-                                    eigentlich und warum betrifft es alle? Interviews und Musik inklusive!
+                                    Inflation. Was ist das eigentlich und warum betrifft es alle? Interviews und Musik
+                                    inklusive!
                                 </div>
                             </div>
                             <div class="featured-content-buttons-container">
-                                <a class="link-button-play">
-                                    <button>
+                                <a class="link-button-play" onclick="playEpisode(1)">
+                                    <button class="button-play">
                                         <div class="icon">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg" class="play-icon">
@@ -109,7 +127,7 @@
                                         <span>Abspielen</span>
                                     </button>
                                 </a>
-                                <button class="info-button">
+                                <button class="info-button" onclick="togglePreview()">
                                     <div class="icon">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                             xmlns="http://www.w3.org/2000/svg" class="info-icon">
@@ -121,6 +139,7 @@
                                     <div style="width: 0.75vw;"></div>
                                     <span>Weitere Infos</span>
                                 </button>
+                                </a>
                             </div>
                         </div>
 
@@ -139,156 +158,578 @@
                 </h2>
                 <div class="selection-row-shows-container">
                     <div class="selection-row-shows">
-                        <div class="show">
+
+                        <div class="show" id="showEp1">
                             <a>
                                 <div class="show-boxart">
-                                    <img src="./img/testImages/themer-wallpaper-trianglify-dark-2560x1440-0.75-1.png">
+                                    <img src="./img/previewImages/Nachrichten.png">
                                 </div>
                             </a>
+                            <div class="show-info-panel show-info-left">
+                                <div class="show-boxart">
+                                    <img src="./preview-gifs/Nachrichten.gif">
+                                </div>
+                                <div class="show-info-container">
+                                    <div class="info-panel-playbutton" onclick="playEpisode(1)">
+                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="play-icon">
+                                            <path
+                                                d="M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="info-panel-previewbutton" style="position: absolute;  ;">
+                                        <svg id="preview-enter" xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffffff"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <line x1="24" y1="6" x2="12" y2="18" />
+                                            <line x1="0" y1="6" x2="12" y2="18" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="show-info">
+                                    <span style="color: rgb(70, 211, 105);">98% Übereinstimmung</span>
+                                    <span
+                                        style="border: #fff 1px solid; padding-left: 4px; padding-right: 4px;">0</span>
+                                    <span style="font-weight: 600;">5 Folgen</span>
+                                </div>
+                                <div class="show-info-tags">
+                                    <span>Politik</span>
+                                    <span>Wirtschaft</span>
+                                    <span>Inflation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="show" id="showEp2">
+                            <a>
+                                <div class="show-boxart">
+                                    <img src="./img/previewImages/Interview1.png">
+                                </div>
+                            </a>
+                            <div class="show-info-panel">
+                                <div class="show-boxart">
+                                    <img src="./preview-gifs/Interview-Teil-1-econome.gif">
+                                </div>
+                                <div class="show-info-container">
+                                    <div class="info-panel-playbutton" onclick="playEpisode(2)">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" class="play-icon">
+                                            <path
+                                                d="M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="info-panel-previewbutton" style="position: absolute;  ;">
+                                        <svg id="preview-enter" xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffffff"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <line x1="24" y1="6" x2="12" y2="18" />
+                                            <line x1="0" y1="6" x2="12" y2="18" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="show-info">
+                                    <span style="color: rgb(70, 211, 105);">96% Übereinstimmung</span>
+                                    <span
+                                        style="border: #fff 1px solid; padding-left: 4px; padding-right: 4px;">0</span>
+                                    <span style="font-weight: 600;">5 Folgen</span>
+                                </div>
+                                <div class="show-info-tags">
+                                    <span>Politik</span>
+                                    <span>Wirtschaft</span>
+                                    <span>Inflation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="show" id="showEp3">
+                            <a>
+                                <div class="show-boxart">
+                                    <img src="./img/previewImages/Interview2.png">
+                                </div>
+                            </a>
+                            <div class="show-info-panel">
+                                <div class="show-boxart">
+                                    <img src="./preview-gifs/Interview-Teil-2-econome.gif">
+                                </div>
+                                <div class="show-info-container">
+                                    <div class="info-panel-playbutton" onclick="playEpisode(3)">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" class="play-icon">
+                                            <path
+                                                d="M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="info-panel-previewbutton" style="position: absolute;  ;">
+                                        <svg id="preview-enter" xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffffff"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <line x1="24" y1="6" x2="12" y2="18" />
+                                            <line x1="0" y1="6" x2="12" y2="18" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="show-info">
+                                    <span style="color: rgb(70, 211, 105);">92% Übereinstimmung</span>
+                                    <span
+                                        style="border: #fff 1px solid; padding-left: 4px; padding-right: 4px;">0</span>
+                                    <span style="font-weight: 600;">5 Folgen</span>
+                                </div>
+                                <div class="show-info-tags">
+                                    <span>Politik</span>
+                                    <span>Wirtschaft</span>
+                                    <span>Inflation</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="show" id="showEp4">
+                            <a>
+                                <div class="show-boxart">
+                                    <img src="./img/previewImages/poetryslamInflation.png">
+                                </div>
+                            </a>
+                            <div class="show-info-panel">
+                                <div class="show-boxart">
+                                    <img src="./img/previewImages/poetryslamInflation.png">
+                                </div>
+                                <div class="show-info-container">
+                                    <div class="info-panel-playbutton" onclick="playEpisode(4)">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" class="play-icon">
+                                            <path
+                                                d="M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="info-panel-previewbutton" style="position: absolute;  ;">
+                                        <svg id="preview-enter" xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffffff"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <line x1="24" y1="6" x2="12" y2="18" />
+                                            <line x1="0" y1="6" x2="12" y2="18" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="show-info">
+                                    <span style="color: rgb(70, 211, 105);">94% Übereinstimmung</span>
+                                    <span
+                                        style="border: #fff 1px solid; padding-left: 4px; padding-right: 4px;">0</span>
+                                    <span style="font-weight: 600;">5 Folgen</span>
+                                </div>
+                                <div class="show-info-tags">
+                                    <span>Politik</span>
+                                    <span>Wirtschaft</span>
+                                    <span>Inflation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="show" id="showEp5">
+                            <a>
+                                <div class="show-boxart">
+                                    <img src="./img/previewImages/Blankenburg.png">
+                                </div>
+                            </a>
+                            <div class="show-info-panel show-info-right">
+                                <div class="show-boxart">
+                                    <img src="./preview-gifs/BlankenburgJakobInterview.gif">
+                                </div>
+                                <div class="show-info-container">
+                                    <div class="info-panel-playbutton" onclick="playEpisode(5)">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" class="play-icon">
+                                            <path
+                                                d="M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="info-panel-previewbutton" style="position: absolute;  ;">
+                                        <svg id="preview-enter" xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffffff"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <line x1="24" y1="6" x2="12" y2="18" />
+                                            <line x1="0" y1="6" x2="12" y2="18" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="show-info">
+                                    <span style="color: rgb(70, 211, 105);">91% Übereinstimmung</span>
+                                    <span
+                                        style="border: #fff 1px solid; padding-left: 4px; padding-right: 4px;">0</span>
+                                    <span style="font-weight: 600;">5 Folgen</span>
+                                </div>
+                                <div class="show-info-tags">
+                                    <span>Politik</span>
+                                    <span>Wirtschaft</span>
+                                    <span>Inflation</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="show">
                             <a>
                                 <div class="show-boxart">
-                                    <img src="./img/testImages/themer-wallpaper-trianglify-dark-2560x1440-0.75-2.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="show">
-                            <a>
-                                <div class="show-boxart">
-                                    <img src="./img/testImages/themer-wallpaper-burst-dark-2560x1440.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="show">
-                            <a>
-                                <div class="show-boxart">
-                                    <img src="./img/testImages/themer-wallpaper-trianglify-dark-2560x1440-0.75-2.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="show">
-                            <a>
-                                <div class="show-boxart">
-                                    <img src="./img/testImages/themer-wallpaper-trianglify-dark-2560x1440-0.75-2.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="show">
-                            <a>
-                                <div class="show-boxart">
-                                    <img src="./img/testImages/themer-wallpaper-trianglify-dark-2560x1440-0.75-2.png">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="show">
-                            <a>
-                                <div class="show-boxart">
-                                    <img src="./img/testImages/themer-wallpaper-trianglify-dark-2560x1440-0.75-2.png">
+                                    <img src="./img/previewImages/Nachrichten.png">
                                 </div>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--
-        <div class="show-selection-row">
-            <div class="selection-row-title">Recently Watched</div>
-            <div class="selection-row-shows">
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-block-wave-dark-2560x1440.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-burst-dark-2560x1440.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-circuits-dark-2560x1440.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-diamonds-dark-2560x1440.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-dot-grid-dark-2560x1440-1.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-dot-grid-dark-2560x1440-2.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-octagon-dark-2560x1440.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-shirts-dark-2560-1440.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-triangles-dark-2560x1440.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-trianglify-dark-2560x1440-0.75-1.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-trianglify-dark-2560x1440-0.75-2.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-block-wave-dark-2560x1440.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-burst-dark-2560x1440.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-circuits-dark-2560x1440.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-diamonds-dark-2560x1440.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-dot-grid-dark-2560x1440-1.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-dot-grid-dark-2560x1440-2.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-octagon-dark-2560x1440.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-shirts-dark-2560-1440.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-triangles-dark-2560x1440.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-trianglify-dark-2560x1440-0.75-1.png">
-                    <a class="show-hover-selector"></a>
-                </div>
-                <div class="show">
-                    <img src="./img/testImages/themer-wallpaper-trianglify-dark-2560x1440-0.75-2.png">
-                    <a class="show-hover-selector"></a>
+            <div class="show-selection-row">
+                <h2 class="selection-row-title">
+                    <a>
+                        Top-Auswahl für Dich
+                    </a>
+                </h2>
+                <div class="selection-row-shows-container">
+                    <div class="selection-row-shows">
+
+                        <div class="show" id="showEp1">
+                            <a>
+                                <div class="show-boxart">
+                                    <img src="./img/previewImages/Nachrichten.png">
+                                </div>
+                            </a>
+                            <div class="show-info-panel show-info-left">
+                                <div class="show-boxart">
+                                    <img src="./preview-gifs/Nachrichten.gif">
+                                </div>
+                                <div class="show-info-container">
+                                    <div class="info-panel-playbutton" onclick="playEpisode(1)">
+                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="play-icon">
+                                            <path
+                                                d="M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="info-panel-previewbutton" style="position: absolute;  ;">
+                                        <svg id="preview-enter" xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffffff"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <line x1="24" y1="6" x2="12" y2="18" />
+                                            <line x1="0" y1="6" x2="12" y2="18" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="show-info">
+                                    <span style="color: rgb(70, 211, 105);">98% Übereinstimmung</span>
+                                    <span
+                                        style="border: #fff 1px solid; padding-left: 4px; padding-right: 4px;">0</span>
+                                    <span style="font-weight: 600;">5 Folgen</span>
+                                </div>
+                                <div class="show-info-tags">
+                                    <span>Politik</span>
+                                    <span>Wirtschaft</span>
+                                    <span>Inflation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="show" id="showEp2">
+                            <a>
+                                <div class="show-boxart">
+                                    <img src="./img/previewImages/Interview1.png">
+                                </div>
+                            </a>
+                            <div class="show-info-panel">
+                                <div class="show-boxart">
+                                    <img src="./preview-gifs/Interview-Teil-1-econome.gif">
+                                </div>
+                                <div class="show-info-container">
+                                    <div class="info-panel-playbutton" onclick="playEpisode(2)">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" class="play-icon">
+                                            <path
+                                                d="M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="info-panel-previewbutton" style="position: absolute;  ;">
+                                        <svg id="preview-enter" xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffffff"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <line x1="24" y1="6" x2="12" y2="18" />
+                                            <line x1="0" y1="6" x2="12" y2="18" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="show-info">
+                                    <span style="color: rgb(70, 211, 105);">96% Übereinstimmung</span>
+                                    <span
+                                        style="border: #fff 1px solid; padding-left: 4px; padding-right: 4px;">0</span>
+                                    <span style="font-weight: 600;">5 Folgen</span>
+                                </div>
+                                <div class="show-info-tags">
+                                    <span>Politik</span>
+                                    <span>Wirtschaft</span>
+                                    <span>Inflation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="show" id="showEp3">
+                            <a>
+                                <div class="show-boxart">
+                                    <img src="./img/previewImages/Interview2.png">
+                                </div>
+                            </a>
+                            <div class="show-info-panel">
+                                <div class="show-boxart">
+                                    <img src="./preview-gifs/Interview-Teil-2-econome.gif">
+                                </div>
+                                <div class="show-info-container">
+                                    <div class="info-panel-playbutton" onclick="playEpisode(3)">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" class="play-icon">
+                                            <path
+                                                d="M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="info-panel-previewbutton" style="position: absolute;  ;">
+                                        <svg id="preview-enter" xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffffff"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <line x1="24" y1="6" x2="12" y2="18" />
+                                            <line x1="0" y1="6" x2="12" y2="18" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="show-info">
+                                    <span style="color: rgb(70, 211, 105);">92% Übereinstimmung</span>
+                                    <span
+                                        style="border: #fff 1px solid; padding-left: 4px; padding-right: 4px;">0</span>
+                                    <span style="font-weight: 600;">5 Folgen</span>
+                                </div>
+                                <div class="show-info-tags">
+                                    <span>Politik</span>
+                                    <span>Wirtschaft</span>
+                                    <span>Inflation</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="show" id="showEp4">
+                            <a>
+                                <div class="show-boxart">
+                                    <img src="./img/previewImages/poetryslamInflation.png">
+                                </div>
+                            </a>
+                            <div class="show-info-panel">
+                                <div class="show-boxart">
+                                    <img src="./img/previewImages/poetryslamInflation.png">
+                                </div>
+                                <div class="show-info-container">
+                                    <div class="info-panel-playbutton" onclick="playEpisode(4)">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" class="play-icon">
+                                            <path
+                                                d="M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="info-panel-previewbutton" style="position: absolute;  ;">
+                                        <svg id="preview-enter" xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffffff"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <line x1="24" y1="6" x2="12" y2="18" />
+                                            <line x1="0" y1="6" x2="12" y2="18" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="show-info">
+                                    <span style="color: rgb(70, 211, 105);">94% Übereinstimmung</span>
+                                    <span
+                                        style="border: #fff 1px solid; padding-left: 4px; padding-right: 4px;">0</span>
+                                    <span style="font-weight: 600;">5 Folgen</span>
+                                </div>
+                                <div class="show-info-tags">
+                                    <span>Politik</span>
+                                    <span>Wirtschaft</span>
+                                    <span>Inflation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="show" id="showEp5">
+                            <a>
+                                <div class="show-boxart">
+                                    <img src="./img/previewImages/Blankenburg.png">
+                                </div>
+                            </a>
+                            <div class="show-info-panel show-info-right">
+                                <div class="show-boxart">
+                                    <img src="./preview-gifs/BlankenburgJakobInterview.gif">
+                                </div>
+                                <div class="show-info-container">
+                                    <div class="info-panel-playbutton" onclick="playEpisode(5)">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" class="play-icon">
+                                            <path
+                                                d="M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="info-panel-previewbutton" style="position: absolute;  ;">
+                                        <svg id="preview-enter" xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffffff"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <line x1="24" y1="6" x2="12" y2="18" />
+                                            <line x1="0" y1="6" x2="12" y2="18" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="show-info">
+                                    <span style="color: rgb(70, 211, 105);">91% Übereinstimmung</span>
+                                    <span
+                                        style="border: #fff 1px solid; padding-left: 4px; padding-right: 4px;">0</span>
+                                    <span style="font-weight: 600;">5 Folgen</span>
+                                </div>
+                                <div class="show-info-tags">
+                                    <span>Politik</span>
+                                    <span>Wirtschaft</span>
+                                    <span>Inflation</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="show">
+                            <a>
+                                <div class="show-boxart">
+                                    <img src="./img/previewImages/Interview1.png">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>-->
+        </div>
 
-            <span style="height: 1000px; display: block;">test</span>
+        <footer>
+            <div class="social-platforms">
+                <a class="platform-link" href="https://johanneum-lueneburg.de/wordpress/">
+                    <img src="./img/JohLogo.png">
+                </a>
+                <a class="platform-link" href="https://www.instagram.com/gymnasium_johanneum/">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="svg-icon svg-icon-instagram-logo">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M21.9302 16.1229C21.9586 17.6764 21.3791 19.1796 20.3152 20.3119C19.1853 21.3804 17.68 21.9606 16.1252 21.9269C14.4742 22.0209 9.52524 22.0209 7.87524 21.9269C6.32151 21.955 4.81816 21.3756 3.68524 20.3119C2.61778 19.1818 2.03769 17.6772 2.07024 16.1229C1.97724 14.4719 1.97724 9.52294 2.07024 7.87294C2.03979 6.3188 2.61957 4.8146 3.68524 3.68294C4.81792 2.61946 6.32187 2.04157 7.87524 2.07294C9.52624 1.97894 14.4752 1.97894 16.1252 2.07294C17.6791 2.04388 19.1828 2.62347 20.3152 3.68794C21.3827 4.81807 21.9628 6.32272 21.9302 7.87694C22.0232 9.52794 22.0232 14.4719 21.9302 16.1229ZM20.2002 11.9999C20.2002 10.5449 20.3202 7.42194 19.8002 6.10594C19.4575 5.23672 18.7695 4.54869 17.9002 4.20594C16.5882 3.68894 13.4612 3.80594 12.0062 3.80594C10.5512 3.80594 7.42824 3.68494 6.11224 4.20594C5.24322 4.54899 4.55529 5.23693 4.21224 6.10594C3.69524 7.41794 3.81224 10.5449 3.81224 11.9999C3.81224 13.4549 3.69124 16.5779 4.21224 17.8939C4.5556 18.7628 5.24343 19.4506 6.11224 19.7939C7.42424 20.3109 10.5522 20.1939 12.0062 20.1939C13.4602 20.1939 16.5842 20.3149 17.9002 19.7939C18.7693 19.4509 19.4572 18.763 19.8002 17.8939C20.3192 16.5819 20.2002 13.4549 20.2002 11.9999ZM17.1302 11.9999C17.1302 14.8311 14.8354 17.1264 12.0042 17.1269C9.17307 17.1275 6.87734 14.8331 6.87624 12.0019C6.87513 9.17077 9.16907 6.8746 12.0002 6.87293C13.361 6.87028 14.6668 7.40953 15.6292 8.37155C16.5916 9.33356 17.1314 10.6392 17.1292 11.9999H17.1302ZM15.3362 11.9999C15.3362 10.1596 13.8446 8.66749 12.0042 8.66694C10.1639 8.66639 8.67134 10.1576 8.67024 11.9979C8.66914 13.8383 10.1599 15.3313 12.0002 15.3329C13.8409 15.3318 15.333 13.8406 15.3352 11.9999H15.3362ZM17.3362 7.85895C16.6735 7.85895 16.1362 7.32168 16.1362 6.65894C16.1362 5.9962 16.6735 5.45894 17.3362 5.45894C17.999 5.45894 18.5363 5.9962 18.5363 6.65894C18.5381 6.97725 18.4127 7.28311 18.1879 7.50847C17.9631 7.73383 17.6576 7.86001 17.3392 7.85895H17.3362Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </a>
+                <a class="platform-link" href="https://www.facebook.com/johanneum.eu/">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="svg-icon svg-icon-facebook-logo">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M13.9868 13.1621V21.9841H10.0418V13.1621H6.8418V9.51207H10.0468V6.73207C10.0468 3.56707 11.9318 1.82007 14.8148 1.82007C15.7616 1.83321 16.7061 1.91577 17.6408 2.06707V5.17307H16.0448C15.4952 5.10007 14.9422 5.28088 14.5419 5.66447C14.1415 6.04807 13.9373 6.59284 13.9868 7.14507V9.51207H17.4868L16.9278 13.1621H13.9868Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </a>
+            </div>
+            <ul class="footer-links">
+                <li>
+                    <a href="https://www.instagram.com/gymnasium_johanneum/">Johanneum Website</a>
+                </li>
+                <li>
+                    <a href="https://econo-me.de/">Econe=me Wettbewerb</a>
+                </li>
+                <li>
+                    <a href="./sources.html">Quellen</a>
+                </li>
+                <li>
+                    <a href="./thanking.html">Danksagung</a>
+                </li>
+            </ul>
+            <div class="footer-copyright"><span>© 2023-2023 11FB, Inc.</span></div>
+        </footer>
+    </div>
+    <div class="preview-hero">
+        <div class="preview-panel">
+            <div class="preview-panel-player">
+                <img src="./preview-gifs/Nachrichten.gif">
+                <div style="opacity: 1;">
+                    <div
+                        style="width: 100%; height: 100%; top: 0; position: absolute; background: linear-gradient(0deg,#181818,transparent 50%);">
+                        <div class="preview-player-title">
+                            <img src="./img/JohLogo.png">
+                            <div class="preview-player-button-row">
+                                <a onclick="playEpisode(1)">
+                                    <button>
+                                        <div class="icon">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg" class="play-icon">
+                                                <path
+                                                    d="M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z"
+                                                    fill="currentColor"></path>
+                                            </svg>
+                                        </div>
+                                        <div style="width: 1rem;"></div>
+                                        <span>Abspielen</span>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="preview-panel-exitbutton">
+                <svg id="preview-exit" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    stroke-width="2.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </div>
+            <div class="preview-panel-info">
+                <div class="preview-panel-info-wrapper">
+                    <div class="info-column1">
+                        <div style="margin: 1vw 0; margin-left: 1vw;">
+                            <span>2023</span>
+                            <span style="border: #fff 1px solid; padding-left: 4px; padding-right: 4px;">0</span>
+                            <span style="font-weight: 600;">5 Folgen</span>
+                        </div>
+                        <div>
+                            <h2>Staffel 1: Inflaflix</h2>
+                            Die Klasse 11FB des Johanneum Lüneburg präsentiert eine Dokumentation über
+                            Inflation. Was ist das eigentlich und warum betrifft es alle? Interviews und Musik
+                            inklusive!
+                        </div>
+                    </div>
+                    <div class="info-column2">
+                        <div>
+                            <span style="color: gray;">Besetzung: </span> Elena Krell, Marlene Linke
+                        </div>
+                        <div style="margin-top: 0.7vw;">
+                            <span style="color: gray;">Genre: </span> Dokumentation, Comedy
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div tabindex="-1" style="opacity: 0.7;">
+            <div class="preview-background"></div>
         </div>
     </div>
+
+    <script>
+        init();
+    </script>
 </body>
 
 </html>
