@@ -1,0 +1,187 @@
+/* General Setup */
+:root {
+    --videoTime: 0%;
+    --videoBufferedTime: 0%;
+    --controlsVisible: 1;
+}
+
+
+@font-face {
+    font-family: "Montserat";
+    src: url(../fonts/Montserrat-VariableFont_wght.ttf) format("truetype");
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: "Montserat", sans-serif;
+    font-size: 1em;
+    line-height: 1.2;
+    background-color: #000000;
+    overflow: hidden;
+    /*overflow-x: hidden;*/
+}
+
+video {
+    height: 100%;
+    width: 100%;
+}
+
+.videoPlayer {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.controls-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    opacity: var(--controlsVisible);
+}
+
+.controls-bar-wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 0px;
+    min-width: 0px;
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-image: linear-gradient( 0deg, rgba(0,0,0,0.3) 0, transparent);
+}
+
+.controls-top {
+    height: 100%;
+    background-color: transparent;
+}
+
+.top-controls-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+
+.controls-bar {
+    box-sizing: border-box;
+    direction: 1tr;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0 2rem;
+    pointer-events: aute;
+    position: relative;
+}
+
+.controls-finder {
+    width: 100%;
+    height: 16px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.finder-background {
+    background-color: gray;
+    width: 100%;
+    height: 3.75px;
+    position: absolute;
+    top: 6px;
+    transition: 0.2s;
+}
+
+.finder-bufferd {
+    background-color: rgb(184, 184, 184);
+    width: var(--videoBufferedTime);
+    height: 3.75px;
+    position: absolute;
+    top: 6px;
+    transition: 0.2s;
+}
+
+.finder-completion {
+    background-color: red;
+    width: var(--videoTime);
+    height: 3.75px;
+    position: absolute;
+    top: 6px;
+    transition: 0.2s;
+}
+
+.controls-finder:hover .finder-background {
+    height: 7.5px;
+}
+
+.controls-finder:hover .finder-bufferd {
+    height: 7.5px;
+}
+
+.controls-finder:hover .finder-completion {
+    height: 7.5px;
+}
+
+.controls-tool-bar {
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.tool-bar-playbutton {
+    width: 44px;
+    height: 44px;
+    position: relative;
+    color: #fff;
+    margin-right: 34px;
+}
+
+.tool-bar-playbutton svg {
+    position: absolute;
+    transition: 0.2s;
+}
+
+.tool-bar-playbutton:hover svg {
+    transform: scale(1.3);
+}
+
+.top-button {
+    color: #fff;
+    margin: 20px;
+}
+
+.episodeName {
+    display: flex;
+    width: 10%;
+    position: absolute;
+    right: 45%;
+    justify-content: center;
+    color: #fff;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 1120px) {
+    .episodeName {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .episodeName {
+        right: 30%;
+    }
+}
